@@ -11,4 +11,4 @@ super + o
 super + c
         $IDE
 super + d
-        $LAUNCHER
+        fish -c "$LAUNCHER"
