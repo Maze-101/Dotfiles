@@ -13,10 +13,9 @@ if status is-interactive
     alias y='yazi'
 end
 
-fastfetch
 starship init fish | source
 
-set -gx TERMINAL "kitty"
+set -gx TERMINAL "st"
 set -gx BROWSER "brave"
 set -gx NOTES "obsidian"
 set -gx IDE "code"
