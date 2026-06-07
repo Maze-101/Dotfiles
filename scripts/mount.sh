@@ -9,7 +9,7 @@ if [ -n "$usbdev" ]; then
     selected=$( \
         { echo "all"; lsblk -rno NAME,SIZE,MOUNTPOINT $usbdev; } | \
         awk '{printf "%-7s %-7s %s\n", $1, $2, $3}' | \
-        dmenu -l 6 -i -p "USB Drives:" | awk '{print $1}'
+        rofi -dmenu -lines 6 -i -p "USB Drives:" | awk '{print $1}'
     )
 
     if [ -z "$selected" ]; then
@@ -31,20 +31,20 @@ if [ -n "$usbdev" ]; then
         fi
 
         if [ -d "$mnt_path" ] && ! mountpoint -q "$mnt_path"; then
-            doas rm -rf "$mnt_path"
+            sudo rm -rf "$mnt_path"
         fi
 
         if grep -qs "/dev/$target" /proc/mounts; then
             sync
-            doas fuser -k -m "$mnt_path" 2>/dev/null
-            doas umount "/dev/$target" || doas umount -l "/dev/$target"
-            doas rm -rf "$mnt_path"
+            sudo fuser -k -m "$mnt_path" 2>/dev/null
+            sudo umount "/dev/$target" || sudo umount -l "/dev/$target"
+            sudo rm -rf "$mnt_path"
         else
-            [ ! -d "$mnt_path" ] && doas mkdir -p "$mnt_path"
-            doas mount -o uid=$uid,gid=$gid "/dev/$target" "$mnt_path"
+            [ ! -d "$mnt_path" ] && sudo mkdir -p "$mnt_path"
+            sudo mount -o uid=$uid,gid=$gid "/dev/$target" "$mnt_path"
         fi
     done
 else
-    echo "No drives connected" | dmenu -i -p "USB Drives: "
+    echo "No drives connected" | rofi -dmenu -i -p "USB Drives: "
     exit 1
 fi
