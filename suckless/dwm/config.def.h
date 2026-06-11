@@ -77,12 +77,6 @@ static const char *screenshotcmd[] = {
     "i=$((i+1)); done; f=\"$d/screenshot$i.png\"; maim -s \"$f\" && xclip "
     "-selection clipboard -t image/png -i \"$f\"",
     NULL};
-static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume",
-                              "@DEFAULT_SINK@", "+10%", NULL};
-static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume",
-                                "@DEFAULT_SINK@", "-10%", NULL};
-static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute",
-                                "@DEFAULT_SINK@", "toggle", NULL};
 static const char *lockcmd[] = {"/usr/local/bin/slock", NULL};
 
 static const Key keys[] = {
