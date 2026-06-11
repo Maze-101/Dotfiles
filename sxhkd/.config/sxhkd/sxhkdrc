@@ -9,7 +9,7 @@ super + Return
 super + d
 	dmenu_run
 super + y
-        $TERMINAL -e "$FILE_MANAGER"
+        st -e "yazi"
 super + p
         mpv (xclip -o)
 

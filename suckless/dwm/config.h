@@ -31,11 +31,11 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    {"Brave-browser", NULL, NULL, 1 << 8, 0, -1},
+    {"Firefox", NULL, NULL, 1 << 8, 0, -1},
     {"mpv", NULL, NULL, 1 << 7, 0, -1},
     {"Zathura", NULL, NULL, 1 << 6, 0, -1},
     {"obsidian", NULL, NULL, 1 << 5, 0, -1},
-    {"org.wezfurlong.wezterm", NULL, NULL, 1 << 0, 0, -1},
+    {"st", NULL, NULL, 1 << 0, 0, -1},
 };
 
 /* layout(s) */
